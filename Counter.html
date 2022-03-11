@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+      <title>
+        Counter
+      </title>
+      <style>
+        body {
+          color: #343434;
+          text-align: center;
+          font-family: 'Rubik';
+          font-size: 20px;
+        }
+
+        button {
+          width: 5cm;
+          background-color: #d2d3db;
+          color: #343434;
+          border-radius: 24px;
+          padding: 14px 40px;
+          font-family: 'Rubik';
+          cursor: pointer;
+          border: none;
+          box-shadow: 3px 3px #9394a5;
+        }
+
+        button:active {
+          box-shadow: 0px 0px;
+          transform: translate(3px, 3px);
+          transition: 0.2s;
+        }
+
+        .main {
+          background-color: #e2e4e9;
+          padding: 30px;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>
+        THE COUNTER
+      </h1>
+      <div class="main">
+        <h2>
+          NUMBER
+        </h2>
+        <h2 id="count-el">
+          0
+        </h2>
+        <button id="increment-btn" onclick="increment()">
+          INCREMENT
+        </button>
+        <br>
+        <br>
+        <button id="decrement-btn" onclick="decrement()">
+          DECREMENT
+        </button>
+        <br>
+        <br>
+        <button id="save-btn" onclick="save()">
+          SAVE VALUE
+        </button>
+        <p id="save-el">
+          Previous Entries: 
+        </p>
+      </div>
+      <footer>
+        <h5>
+          Created by felexion for the JavaScript Programming Course<br>Link: <a href="https://www.youtube.com/watch?v=jS4aFq5-91M&ab_channel=freeCodeCamp.org">JavaScript Programming - Full Course</a> 
+        </h5>
+      </footer>
+      <!--TODO: MAKE DECREMENT!-->
+      <script>
+        let countEl = document.getElementById("count-el")
+        let saveEl = document.getElementById("save-el")
+
+        // CONSOLE LOG STRING VARIABLES
+        let incrBtn = "Increment button clicked. Increasing number."
+        let decrBtn = "Decrement button clicked. Decreasing number."
+        let negVal = "The number has reached a negative value."
+
+        console.log(countEl)    
+        console.log(saveEl)
+
+        let count = 0
+
+        function increment() {
+          count += 1
+          countEl.textContent = count
+          console.log(incrBtn)
+        }
+
+        function decrement() {
+          count -= 1
+          countEl.textContent = count
+          console.log(decrBtn)
+
+          if (count < 0) {
+            alert(
+              "You are entering a negative value!"
+            );
+            console.log(negVal)
+          }
+        }
+
+        function save() {
+          saveStr = count + " - "
+          saveEl.textContent += saveStr
+          console.log("Entry count number",count,"saved. Sending text content to Previous Entries. Resetting number of people entered.")
+          countEl.textContent = 0
+          count = 0
+        }
+      </script>
+    </body>
+  </html>
